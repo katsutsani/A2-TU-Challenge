@@ -16,7 +16,16 @@ namespace TU_Challenge
 
         public static bool IsMajeur(int age)
         {
-            if (age >= 18) return true;
+            if (age >= 18)
+            {
+                if (age > 125)
+                    throw new ArgumentException(String.Format("vous ne pouvez pas avoir plus de 125 ans", age),
+                                          "num");
+                return true;
+            }
+            else if (age < 0)
+                throw new ArgumentException(String.Format("vous ne pouvez pas avoir un age négatif", age),
+                                     "num");
             else
                 return false;
         }
@@ -47,14 +56,14 @@ namespace TU_Challenge
         public static List<int> GetAllPrimary(int a)
         {
             List<int> list = new List<int>();
-            for (int i = 1; i <= a; i++)
+            for (int i = 2; i <= a; i++)
             {
                 bool result = IsPrimary(i);
-                if(result == true)
+                if (result == true)
                 {
                     list.Add(i);
                 }
-                    
+
             }
 
             return list;
@@ -72,9 +81,9 @@ namespace TU_Challenge
 
         }
 
-        public static bool IsInOrder(List<int> list)
+        public static int IsInOrder(int a, int b)
         {
-            return false;
+            return 1;
 
         }
     }

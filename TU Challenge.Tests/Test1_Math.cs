@@ -105,7 +105,7 @@ namespace TU_Challenge
         {
             List<int> result = MyMathImplementation.GetAllPrimary(a);
 
-            Assert.That(result.Count-1, Is.EqualTo(countExpected));
+            Assert.That(result.Count, Is.EqualTo(countExpected));
             foreach (var el in result)
             {
                 Assert.IsTrue(MyMathImplementation.IsPrimary(el));
