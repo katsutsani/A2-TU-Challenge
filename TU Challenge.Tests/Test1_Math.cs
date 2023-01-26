@@ -135,18 +135,18 @@ namespace TU_Challenge
         }
 
 
-        //[Test]
-        //[TestCase(0, 1, 1)]
-        //[TestCase(0, 10, 1)]
-        //[TestCase(20, 10, -1)]
-        //[TestCase(-20, 10, 1)]
-        //[TestCase(10, 0, -1)]
-        //[TestCase(20, 20, 0)]
-        //public void IsInOrder(int a, int b, int expected)
-        //{
-        //    var result = MyMathImplementation.IsInOrder(a, b);
-        //    Assert.That(result, Is.EqualTo(expected));
-        //}
+        [Test]
+        [TestCase(0, 1, 1)]
+        [TestCase(0, 10, 1)]
+        [TestCase(20, 10, -1)]
+        [TestCase(-20, 10, 1)]
+        [TestCase(10, 0, -1)]
+        [TestCase(20, 20, 0)]
+        public void IsInOrder(int a, int b, int expected)
+        {
+            var result = MyMathImplementation.IsInOrder(a, b);
+            Assert.That(result, Is.EqualTo(expected));
+        }
 
         //[Test]
         //public void TestIsInOrder()
