@@ -44,13 +44,15 @@ namespace TU_Challenge
 
         public static bool IsPrimary(int a)
         {
-            int sqrt_int = (int)Math.Sqrt(a);
-            for (int i = 2; i <= sqrt_int; i++)
+            int _nbDiv = 0;
+            for (int i = 1; i <= a; i++)
             {
-                if (a % i == 0)
-                    return false;
+                if (IsDivisible(a, i))
+                {
+                    _nbDiv++;
+                }
             }
-            return true;
+            return _nbDiv == 2;
         }
 
         public static List<int> GetAllPrimary(int a)
@@ -71,20 +73,62 @@ namespace TU_Challenge
 
         public static int Power2(int a)
         {
-            return (int)Math.Pow(a, 2);
-
+            return a * a;
         }
 
         public static int Power(int a, int b)
         {
-            return (int)Math.Pow(a, b);
-
+            int result = a;
+            for (int i = 1; i < b; i++)
+            {
+                result = result * a;
+            }
+            return result;
         }
 
         public static int IsInOrder(int a, int b)
         {
-            return 1;
+            if (a < b)
+            {
+                return 1;
+            }
+            else
+            {
+                return a == b ? 0 : -1;
+            }
+        }
 
+        public static bool IsListInOrder(List<int> list)
+        {
+            if (list.Count < 2)
+            {
+                return true;
+            }
+            for (int i = 0; i < list.Count() - 1; i++)
+            {
+                if (IsInOrder(list[i], list[i + 1]) == -1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static List<int> Sort(List<int> list)
+        {
+            for (int i = 0; i < list.Count(); i++)
+            {
+                for (int j = i + 1; j < list.Count(); j++)
+                {
+                    if (list[j] < list[i])
+                    {
+                        int temp = list[i];
+                        list[i] = list[j];
+                        list[j] = temp;
+                    }
+                }
+            }
+            return list;
         }
     }
 }
